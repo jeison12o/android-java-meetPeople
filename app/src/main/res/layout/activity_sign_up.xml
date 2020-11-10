@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.SignUpActivity"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <TextView
+            android:textAlignment="center"
+            android:layout_marginBottom="30sp"
+            android:text="@string/sign_up"
+            android:textSize="40sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:textSize="20sp"
+            android:id="@+id/txtName"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:layout_marginBottom="15dp"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:textSize="20sp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/txtLastname"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/lastName"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:textSize="20sp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/txtBirthDate"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/birth_date"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:textSize="20sp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/txtPhone"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:textSize="20sp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/txtUser"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/user"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:textSize="20sp"
+            android:id="@+id/txtPassword"
+            android:layout_marginBottom="15dp"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/password_start"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:textSize="20sp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/txtConfirmPassword"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/confirm_password"/>
+
+    <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:onClick="signUpUser"/>
+
+        <TextView
+                android:id="@+id/lblLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:onClick="toLogin"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="220dp"
+              android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/colorPrimary">
+    <!--layout principal
+    *se crea drawer_toolbar-->
+
+    <ImageView
+            android:layout_width="121dp"
+            android:layout_height="140dp"
+            android:src="@drawable/usuario"
+            />
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="@android:color/white"
+              android:text="@string/user_name"
+              android:textSize="25sp"
+              android:layout_marginTop="15dp"
+              android:textAlignment="center"/>
+
+    <!--mirar como implementar imagenes-->
+</LinearLayout>

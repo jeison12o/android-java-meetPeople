@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ViewPhotos"
+          android:title="@string/my_photos"
+          android:icon="@drawable/photo_see_24"/>
+
+    <item android:id="@+id/ViewStories"
+          android:title="@string/my_history"
+          android:icon="@drawable/ic_baseline_image_24"/>
+</menu>

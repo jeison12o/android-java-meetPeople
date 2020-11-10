@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/my_history" android:id="@+id/menu_my_History"
+          android:icon="@drawable/ic_baseline_image_24"/>
+
+    <item
+            android:title="@string/my_photos"
+            android:id="@+id/menu_my_photos"
+            android:icon="@drawable/photo_see_24"
+    />
+
+    <item
+            android:title="@string/people"
+            android:id="@+id/menu_people"
+            android:icon="@drawable/people_alt_24"
+    />
+    <item
+            android:id="@+id/menu_my_info"
+            android:title="@string/my_info"
+            android:icon="@drawable/information_book_24"/>
+</menu>
+

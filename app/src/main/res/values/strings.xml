@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">History</string>
+    <string name="enter_user_id">User</string>
+    <string name="enter_password">Password</string>
+    <string name="login">Login</string>
+    <string name="message_login">not are registered?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="name">Name</string>
+    <string name="lastName">Lastname</string>
+    <string name="birth_date">Birth date</string>
+    <string name="phone">Phone</string>
+    <string name="user">User</string>
+    <string name="password_start">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="my_history">History</string>
+    <string name="my_photos">Photos</string>
+    <string name="people">Peoples</string>
+    <string name="my_info">Personal Information</string>
+    <string name="user_name">User name</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="fragment_main">Fragment main</string>
+    <string name="load_fragment">load fragment</string>
+    <string name="fragment_second">Fragment second</string>
+    <string name="fragment_thee">Fragment three</string>
+    <string name="fragment_Four">Fragment four</string>
+    <string name="url">http://192.168.0.13:1000/api/v1</string>
+</resources>
