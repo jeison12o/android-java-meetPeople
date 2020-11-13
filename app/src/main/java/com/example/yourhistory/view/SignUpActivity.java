@@ -128,7 +128,7 @@ public class SignUpActivity extends AppCompatActivity {
     public void createUser(User user){
         //configuramos el loading
         progressDialog = new ProgressDialog(SignUpActivity.this);
-        progressDialog.setMessage("creating user loading");
+        progressDialog.setMessage("creating user loading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
         //y lo mostramos
