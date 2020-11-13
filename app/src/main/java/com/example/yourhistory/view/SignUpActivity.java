@@ -1,6 +1,7 @@
 package com.example.yourhistory.view;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.text.SpannableString;
@@ -15,11 +16,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.yourhistory.LoginActivity;
 import com.example.yourhistory.R;
 import com.example.yourhistory.controller.CtlUser;
 import com.example.yourhistory.interfaces.UtilSignUp;
 import com.example.yourhistory.model.User;
+import com.example.yourhistory.model.VolleySingleton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -27,14 +36,15 @@ import java.util.Date;
 public class SignUpActivity extends AppCompatActivity {
 
     TextView lblLogin;
-    static EditText txtName;
-    static EditText txtLastName;
-    static EditText txtBirthDate;
-    static EditText txtPhone;
-    static EditText txtUser;
-    static EditText txtPassword;
-    static EditText txtConfirmPassword;
-    CtlUser controller;
+    EditText txtName;
+    EditText txtLastName;
+    EditText txtBirthDate;
+    EditText txtPhone;
+    EditText txtUser;
+    EditText txtPassword;
+    EditText txtConfirmPassword;
+    //se encarga de hacer un loading
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +60,6 @@ public class SignUpActivity extends AppCompatActivity {
         txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
         changeLblLogin(lblLogin);
         changeEditTextToDate(txtBirthDate);
-        controller = new CtlUser(getApplicationContext());
     }
 
     static public void changeLblLogin(TextView date){
@@ -98,6 +107,7 @@ public class SignUpActivity extends AppCompatActivity {
             confirmPassword = txtConfirmPassword.getText().toString();
 
         if (name.isEmpty() || lastName.isEmpty() || birthDate.isEmpty() || phone.isEmpty() || user.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            printMessage("must complete all fields");
         }else {
             if(password.equals(confirmPassword)) {
                 User u = new User();
@@ -108,22 +118,65 @@ public class SignUpActivity extends AppCompatActivity {
                 u.setNameUser(user);
                 u.setPassword(password);
                 u.setActive(true);
-                controller.createUser(u);
+                createUser(u);
             }else {
                 printMessage("confirm password not equals pasword");
             }
         }
     }
 
+    public void createUser(User user){
+        //configuramos el loading
+        progressDialog = new ProgressDialog(SignUpActivity.this);
+        progressDialog.setMessage("creating user loading");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        //y lo mostramos
+
+        final String server_url= "http://192.168.0.13:1000/api/v1/user";
+        JSONObject json = new JSONObject();
+        try {
+            json.put("name", user.getName());
+            json.put("lastName", user.getLastName());
+            json.put("birthDate", user.getBirthDate());
+            json.put("phoneNumber", user.getPhoneNumber());
+            json.put("nameUser", user.getNameUser());
+            json.put("password", user.getPassword());
+            json.put("active", user.isActive());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,server_url, json, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                //ocultamos el loading
+                progressDialog.hide();
+                final String result=response.toString();
+                //Toast.makeText(context,"result : "+result,Toast.LENGTH_SHORT).show();
+                printMessage("successfully created");
+                toLogin();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.hide();
+                if(error.networkResponse != null) {
+                    String m = new String(error.networkResponse.data);
+                    printMessage(""+ m);
+                    txtUser.setText("");
+                }else {
+                    printMessage("Error: "+ error.getMessage());
+                }
+            }
+        });
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
     private void printMessage (String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    public static void cleanNameUser() {
-        txtUser.setText("");
-    }
-
-    public static void clean() {
+    public void clean() {
         txtName.setText("");
         txtLastName.setText("");
         txtBirthDate.setText("");
@@ -133,7 +186,7 @@ public class SignUpActivity extends AppCompatActivity {
         txtUser.setText("");
     }
 
-    public  void toLogin() {
+    public void toLogin() {
         startActivity(new Intent(this, LoginActivity.class));
         finish();
     }

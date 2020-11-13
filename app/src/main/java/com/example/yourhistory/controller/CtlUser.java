@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CtlUser {
+
     Context context;
 
     public CtlUser(Context context) {
@@ -54,7 +55,7 @@ public class CtlUser {
                 final String result=response.toString();
                 //Toast.makeText(context,"result : "+result,Toast.LENGTH_SHORT).show();
                 Toast.makeText(context,"successfully created",Toast.LENGTH_SHORT).show();
-                SignUpActivity.clean();
+                //SignUpActivity.clean();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -62,7 +63,7 @@ public class CtlUser {
                 if(error.networkResponse.data != null) {
                     String m = new String(error.networkResponse.data);
                     Toast.makeText(context, "Error: "+ m,Toast.LENGTH_SHORT).show();
-                    SignUpActivity.cleanNameUser();
+                    //SignUpActivity.cleanNameUser();
                 }
             }
         });
