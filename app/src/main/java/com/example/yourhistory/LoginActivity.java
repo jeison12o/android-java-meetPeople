@@ -13,11 +13,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.yourhistory.controller.CtlUser;
 import com.example.yourhistory.model.User;
+import com.example.yourhistory.model.UserEntered;
 import com.example.yourhistory.model.VolleySingleton;
-import com.example.yourhistory.view.MainMenuActivity;
-import com.example.yourhistory.view.SignUpActivity;
 import com.google.gson.Gson;
 
 public class LoginActivity extends AppCompatActivity {
@@ -70,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
                 final String result=response.toString();
                 //printMessage("result : "+result);
                 user = gson.fromJson(result, User.class);
+                //usuario que se va logiar
+                UserEntered.setUserEntered(user);
                 validatePassword(user);
             }
         }, new Response.ErrorListener() {

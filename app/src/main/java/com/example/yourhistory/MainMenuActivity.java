@@ -1,4 +1,4 @@
-package com.example.yourhistory.view;
+package com.example.yourhistory;
 
 
 import android.view.MenuItem;
@@ -6,15 +6,23 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import com.example.yourhistory.*;
+
+import com.example.yourhistory.Fragment.FragmentPersonalInformation;
+import com.example.yourhistory.Fragment.FragmentPhotos;
+import com.example.yourhistory.Fragment.FragmentPeoples;
+import com.example.yourhistory.Fragment.MainFragment;
+import com.example.yourhistory.model.UserEntered;
 import com.google.android.material.navigation.NavigationView;
 //implements in method of class .onNavigationItemSelectedListener
-public class MainMenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MainFragment.onFragmentBtnSelected{
+public class MainMenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MainFragment.onFragmentBtnSelected {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBar;
@@ -23,6 +31,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+
+    TextView lblHeaderNameUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +60,9 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         fragmentTransaction.add(R.id.container_fragment, new MainFragment());
         fragmentTransaction.commit();
 
+        //lblHeaderNameUser = findViewById(R.id.headerNameUser);
+        Toast.makeText(this, "user: "+UserEntered.getUserEntered().getNameUser(), Toast.LENGTH_SHORT).show();
+        //lblHeaderNameUser.setText(UserEntered.getUserEntered().getNameUser()+"");
     }
 
 
@@ -69,21 +82,21 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         if(item.getItemId() == R.id.menu_my_photos) {
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new FragmentSecond());
+            fragmentTransaction.replace(R.id.container_fragment, new FragmentPhotos());
             fragmentTransaction.commit();
         }
 
         if(item.getItemId() == R.id.menu_people) {
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new FragmentThree());
+            fragmentTransaction.replace(R.id.container_fragment, new FragmentPeoples());
             fragmentTransaction.commit();
         }
 
         if(item.getItemId() == R.id.menu_my_info) {
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new FragmentFour());
+            fragmentTransaction.replace(R.id.container_fragment, new FragmentPersonalInformation());
             fragmentTransaction.commit();
         }
         return true;
@@ -93,7 +106,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
     public void onButtonSelected() {
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment, new FragmentSecond());
+        fragmentTransaction.replace(R.id.container_fragment, new FragmentPhotos());
         fragmentTransaction.commit();
     }
 }

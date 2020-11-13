@@ -1,4 +1,4 @@
-package com.example.yourhistory.view;
+package com.example.yourhistory;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
@@ -20,10 +20,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.yourhistory.LoginActivity;
-import com.example.yourhistory.R;
-import com.example.yourhistory.controller.CtlUser;
-import com.example.yourhistory.interfaces.UtilSignUp;
 import com.example.yourhistory.model.User;
 import com.example.yourhistory.model.VolleySingleton;
 
@@ -31,7 +27,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -189,5 +184,9 @@ public class SignUpActivity extends AppCompatActivity {
     public void toLogin() {
         startActivity(new Intent(this, LoginActivity.class));
         finish();
+    }
+
+    public void toLogin(View view) {
+        this.toLogin();
     }
 }

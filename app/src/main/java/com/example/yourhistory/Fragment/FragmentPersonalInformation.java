@@ -1,4 +1,4 @@
-package com.example.yourhistory;
+package com.example.yourhistory.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,12 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentFour extends Fragment {
+import com.example.yourhistory.R;
+
+public class FragmentPersonalInformation extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view;
-        view = inflater.inflate(R.layout.fragment_four, container, false);
+        view = inflater.inflate(R.layout.fragment_personal_information, container, false);
         return view;
     }
 }

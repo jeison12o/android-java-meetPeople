@@ -1,4 +1,4 @@
-package com.example.yourhistory;
+package com.example.yourhistory.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.yourhistory.R;
+
 /*1) create the class fragment
 2)more class of type fragment
 3)create document xml of the first fragment
