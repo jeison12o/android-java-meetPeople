@@ -61,7 +61,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         fragmentTransaction.commit();
 
         //lblHeaderNameUser = findViewById(R.id.headerNameUser);
-        Toast.makeText(this, "user: "+UserEntered.getUserEntered().getNameUser(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "user: "+UserEntered.getUserEntered().getNameUser(), Toast.LENGTH_SHORT).show();
         //lblHeaderNameUser.setText(UserEntered.getUserEntered().getNameUser()+"");
     }
 
