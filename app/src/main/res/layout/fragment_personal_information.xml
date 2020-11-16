@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
@@ -9,17 +8,18 @@
                android:layout_height="120dp"
                android:src="@drawable/usuario"
                android:layout_marginStart="140dp"
-               android:layout_marginTop="100dp" android:id="@+id/imageViewUser"/>
+               android:layout_marginTop="50dp"
+               android:id="@+id/imageViewUser"/>
 
     <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="340dp"
+                  android:layout_height="280dp"
                   android:orientation="horizontal"
-                  android:layout_marginStart="40dp"
                   android:layout_marginTop="40dp">
 
         <LinearLayout android:layout_width="150dp"
                       android:layout_height="wrap_content"
-                      android:orientation="vertical">
+                      android:orientation="vertical"
+                      android:layout_marginStart="25dp">
 
             <TextView android:layout_width="120dp"
                       android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
 
             <EditText android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:id="@+id/txtName"/>
+                      android:id="@+id/txtPersonalName"/>
 
             <TextView android:layout_width="120dp"
                       android:layout_height="wrap_content"
@@ -39,17 +39,19 @@
 
             <EditText android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:id="@+id/txtBirth_date"
+                      android:id="@+id/txtPersonalBirth_date"
                       android:onClick="date"/>
 
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:text="@string/confirm_password"
+            <TextView android:layout_width="120dp"
+                      android:layout_height="wrap_content"
+                      android:text="@string/password_start"
                       android:textSize="15sp"
                       android:layout_marginStart="5dp"/>
+
             <EditText android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:id="@+id/txtConfirm_password" android:inputType="textPassword"/>
+                      android:id="@+id/txtPersonalPassword"
+                      android:inputType="textPassword"/>
 
         </LinearLayout>
         <LinearLayout android:layout_width="150dp"
@@ -63,42 +65,41 @@
                       android:textSize="15sp"
                       android:layout_marginStart="5dp"/>
 
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtLastname"/>
-            <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/password_start"
-                    android:textSize="15sp"
-                    android:layout_marginStart="5dp"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtPassword"
-                    android:inputType="textPassword"/>
+            <EditText android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/txtPersonalLastname"/>
+
+            <TextView android:layout_width="120dp"
+                      android:layout_height="wrap_content"
+                      android:text="@string/phone"
+                      android:textSize="15sp"
+                      android:layout_marginStart="5dp"/>
+
+            <EditText android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/txtPersonalPhone"/>
+
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:text="@string/confirm_password"
+                      android:textSize="15sp"
+                      android:layout_marginStart="5dp"/>
+
+            <EditText android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/txtPersonalConfirm_password" android:inputType="textPassword"/>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout android:layout_width="250dp"
-                  android:layout_height="match_parent"
-                  android:orientation="horizontal"
-                  android:layout_marginTop="2dp"
-                  android:layout_marginStart="140dp">
-
-        <ImageView android:layout_width="30dp"
-                   android:layout_height="50dp"
-                   android:src="@drawable/editar"
-                   android:id="@+id/btnEdit"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
 
         <Button
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Delete"
+                android:text="@string/edit"
                 android:layout_marginStart="15dp"
-                android:drawableEnd="@drawable/trash_edit"
-                android:paddingStart="0dp"
-                tools:ignore="RtlSymmetry"
-                android:id="@+id/btnDeleteProfile"/>
+                android:id="@+id/btnEditProfile"/>
     </LinearLayout>
 </LinearLayout>

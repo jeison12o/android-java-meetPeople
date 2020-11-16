@@ -25,5 +25,5 @@
     <string name="fragment_thee">Fragment three</string>
     <string name="fragment_Four">Fragment four</string>
     <string name="url">http://192.168.0.13:1000/api/v1</string>
-    <string name="Delete">delete profile</string>
+    <string name="edit">Edit profile</string>
 </resources>
