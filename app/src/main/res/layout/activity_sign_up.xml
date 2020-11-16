@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sign_up"
-                android:onClick="toMenuDrawer" />
+                android:onClick="signUpUser" />
 
         <TextView
                 android:id="@+id/lblLogin"
@@ -95,6 +95,6 @@
                 android:layout_marginStart="10dp"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
-                android:onClick="signUpUser"/>
+                android:onClick="toLogin"/>
     </LinearLayout>
 </LinearLayout>

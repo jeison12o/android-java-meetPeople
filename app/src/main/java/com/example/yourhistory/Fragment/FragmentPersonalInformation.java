@@ -11,11 +11,13 @@ import androidx.fragment.app.Fragment;
 import com.example.yourhistory.R;
 
 public class FragmentPersonalInformation extends Fragment {
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view;
-        view = inflater.inflate(R.layout.fragment_personal_information, container, false);
+        View view = inflater.inflate(R.layout.fragment_personal_information, container, false);
+
         return view;
     }
 }

@@ -2,6 +2,7 @@ package com.example.yourhistory;
 
 
 import android.view.MenuItem;
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +29,6 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
     ActionBarDrawerToggle actionBar;
     Toolbar toolbar;
     NavigationView navigationView;
-
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
@@ -41,28 +41,23 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         //references layout_toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         drawerLayout = findViewById(R.id.layout_drawer);
         navigationView = findViewById(R.id.NavigationView);
+        View nView = navigationView.getHeaderView(0);
+        lblHeaderNameUser = (TextView) nView.findViewById(R.id.headerNameUser);
+        lblHeaderNameUser.setText(UserEntered.getUserEntered().getNameUser()+"");
         navigationView.setNavigationItemSelectedListener(this);
 
-        actionBar = new ActionBarDrawerToggle(this, drawerLayout,
-                toolbar, R.string.open, R.string.close);
-
+        actionBar = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBar);
         actionBar.setDrawerIndicatorEnabled(true);
         actionBar.syncState();
 
         //load default fragment
-
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container_fragment, new MainFragment());
         fragmentTransaction.commit();
-
-        //lblHeaderNameUser = findViewById(R.id.headerNameUser);
-       // Toast.makeText(this, "user: "+UserEntered.getUserEntered().getNameUser(), Toast.LENGTH_SHORT).show();
-        //lblHeaderNameUser.setText(UserEntered.getUserEntered().getNameUser()+"");
     }
 
 
