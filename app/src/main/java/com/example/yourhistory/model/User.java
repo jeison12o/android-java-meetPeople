@@ -90,4 +90,19 @@ public class User implements Serializable {
     public void setActive(boolean active) {
         this.active = active;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "_id='" + _id + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", nameUser='" + nameUser + '\'' +
+                ", password='" + password + '\'' +
+                ", urlPhotoProfile='" + urlPhotoProfile + '\'' +
+                ", active=" + active +
+                '}';
+    }
 }

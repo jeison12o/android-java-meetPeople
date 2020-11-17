@@ -2,6 +2,7 @@ package com.example.yourhistory;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -54,11 +55,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void getNameUser(String nameUser){
-        progressDialog = new ProgressDialog(LoginActivity.this);
-        progressDialog.setMessage("looking for user loading...");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-
+        try {
+            progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog.setMessage("looking for user loading...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }catch (Exception e) {
+            Log.i("error", e.getMessage());
+        }
         final Gson gson = new Gson();
         final String server_url= "http://192.168.0.13:1000/api/v1/user/nameUser/"+nameUser;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, server_url, new Response.Listener<String>() {
