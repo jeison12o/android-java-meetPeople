@@ -1,6 +1,7 @@
 package com.example.yourhistory.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +33,7 @@ public class MainFragment extends Fragment {
         btnLoadFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onButtonSelected();
+                startActivity(new Intent(getContext(), MainFragment.class));
             }
         });
         return view;
