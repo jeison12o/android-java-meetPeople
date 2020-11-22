@@ -124,7 +124,7 @@ public class FragmentPersonalInformation extends Fragment {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        final String server_url= "http://192.168.0.13:1000/api/v1/user";
+        final String server_url= "http://192.168.1.12:1000/api/v1/user";
         JSONObject json = new JSONObject();
         try {
             json.put("_id", user.get_id());

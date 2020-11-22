@@ -30,6 +30,8 @@ public class MainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable Bundle savedInstanceState) {
        View view; view = inflater.inflate(R.layout.fragment_main, container, false);
         Button btnLoadFragment = view.findViewById(R.id.btnLoadFragment);
+
+
         btnLoadFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,4 +56,5 @@ public class MainFragment extends Fragment {
     public interface onFragmentBtnSelected{
         public void onButtonSelected();
     }
+
 }

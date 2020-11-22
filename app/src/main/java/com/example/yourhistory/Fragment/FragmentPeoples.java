@@ -1,10 +1,12 @@
 package com.example.yourhistory.Fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +22,7 @@ import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.yourhistory.LoginActivity;
 import com.example.yourhistory.R;
+import com.example.yourhistory.UserProfile;
 import com.example.yourhistory.adapter.AdapterUserImageUrl;
 import com.example.yourhistory.model.User;
 import com.example.yourhistory.model.UserEntered;
@@ -37,6 +40,7 @@ public class FragmentPeoples extends Fragment {
     RecyclerView recyclerP;
     List<User>  listUsers;
     ProgressDialog progressDialog;
+    Button button;
 
     @Nullable
     @Override
@@ -47,6 +51,13 @@ public class FragmentPeoples extends Fragment {
         recyclerP.setHasFixedSize(true);
         listUsers = new ArrayList();
         getUsers();
+        button = view.findViewById(R.id.btnNextFragment);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), UserProfile.class));
+            }
+        });
         return view;
     }
 
@@ -56,7 +67,8 @@ public class FragmentPeoples extends Fragment {
         progressDialog.setCancelable(false);
         progressDialog.show();
         final Gson gson = new Gson();
-        final String url= "http://192.168.0.13:1000/api/v1/user";
+        /*final String url= "http://192.168.1.12:1000/api/v1/user";*/
+        final String url= "http://192.168.1.12:1000/api/v1/user";
         JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -92,4 +104,6 @@ public class FragmentPeoples extends Fragment {
     private void printMessage (String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
+
+
 }

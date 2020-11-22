@@ -13,6 +13,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:srcCompat="@drawable/usuario"
+                android:layout_marginStart="5dp"
                 android:id="@+id/imageUserTemplate"/>
         <LinearLayout
                 android:orientation="vertical"
@@ -24,12 +25,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/lblTemplateNameUser"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:layout_marginStart="5dp"/>
             <TextView
                     android:text="nameº"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/lblTemplateName"/>
+                    android:id="@+id/lblTemplateName"
+                    android:layout_marginStart="5dp"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

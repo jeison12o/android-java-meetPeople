@@ -127,8 +127,9 @@ public class SignUpActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
         //y lo mostramos
+        /*final String server_url= "http://192.168.0.13:1000/api/v1/user";*/
+        final String server_url= "http://192.168.1.12:1000/api/v1/user";
 
-        final String server_url= "http://192.168.0.13:1000/api/v1/user";
         JSONObject json = new JSONObject();
         try {
             json.put("name", user.getName());
