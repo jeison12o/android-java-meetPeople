@@ -3,13 +3,16 @@
               xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:layout_marginTop="30dp">
-
+              android:layout_marginTop="50dp">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:srcCompat="@drawable/photo_see_24"
-            android:id="@+id/floatingActionButton"/>
+            android:id="@+id/floatingButtonCamera"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPhotoUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
