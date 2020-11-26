@@ -4,11 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Multimedia implements Serializable {
+
     private String _id;
     private String _iduserTo;
     private String type;
     private String url;
-    private Date dateCreation;
+    private String dateCreation;
     private String category;
 
     public Multimedia() {
@@ -46,11 +47,11 @@ public class Multimedia implements Serializable {
         this.url = url;
     }
 
-    public Date getDateCreation() {
+    public String getDateCreation() {
         return dateCreation;
     }
 
-    public void setDateCreation(Date dateCreation) {
+    public void setDateCreation(String dateCreation) {
         this.dateCreation = dateCreation;
     }
 

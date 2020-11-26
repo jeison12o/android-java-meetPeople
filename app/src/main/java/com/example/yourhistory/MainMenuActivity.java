@@ -1,8 +1,10 @@
 package com.example.yourhistory;
 
 
+import android.graphics.Bitmap;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +18,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.example.yourhistory.Fragment.FragmentPersonalInformation;
 import com.example.yourhistory.Fragment.FragmentPhotos;
 import com.example.yourhistory.Fragment.FragmentPeoples;
 import com.example.yourhistory.Fragment.MainFragment;
 import com.example.yourhistory.model.UserEntered;
+import com.example.yourhistory.model.VolleySingleton;
 import com.google.android.material.navigation.NavigationView;
 //implements in method of class .onNavigationItemSelectedListener
 public class MainMenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MainFragment.onFragmentBtnSelected {
@@ -33,6 +39,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
     FragmentTransaction fragmentTransaction;
 
     TextView lblHeaderNameUser;
+    ImageView imageProfileUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,12 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         View nView = navigationView.getHeaderView(0);
         lblHeaderNameUser = (TextView) nView.findViewById(R.id.headerNameUser);
         lblHeaderNameUser.setText(UserEntered.getUserEntered().getNameUser()+"");
+        imageProfileUser = nView.findViewById(R.id.imageProfileUser);
+        if (UserEntered.getUserEntered().getUrlPhotoProfile() != null){
+            loadImage(UserEntered.getUserEntered().getUrlPhotoProfile());
+        }else{
+            imageProfileUser.setImageResource(R.drawable.usuario);
+        }
         navigationView.setNavigationItemSelectedListener(this);
 
         actionBar = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
@@ -103,5 +116,21 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment, new FragmentPhotos());
         fragmentTransaction.commit();
+    }
+
+    private void loadImage(String url){
+        url = url.replace(" ", "%20");
+        ImageRequest imageRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
+            @Override
+            public void onResponse(Bitmap response) {
+                imageProfileUser.setImageBitmap(response);
+            }
+        }, 0, 0, ImageView.ScaleType.CENTER, null, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Error load image: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(imageRequest);
     }
 }

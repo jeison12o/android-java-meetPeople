@@ -24,8 +24,8 @@
     <string name="fragment_second">Fragment second</string>
     <string name="fragment_thee">Fragment three</string>
     <string name="fragment_Four">Fragment four</string>
-    <string name="url">http://192.168.0.13:1000/api/v1</string>
     <string name="edit">Edit profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="url_serve">http://192.168.0.13:1000/api/v1</string>
 </resources>

@@ -55,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void getNameUser(String nameUser){
+
         try {
             progressDialog = new ProgressDialog(LoginActivity.this);
             progressDialog.setMessage("looking for user loading...");
@@ -63,9 +64,9 @@ public class LoginActivity extends AppCompatActivity {
         }catch (Exception e) {
             Log.i("error", e.getMessage());
         }
+
         final Gson gson = new Gson();
-        final String server_url= "http://192.168.1.12:1000/api/v1/user/nameUser/"+nameUser;
-        /*final String server_url= "http://192.168.0.13:1000/api/v1/user/nameUser/"+nameUser;*/
+        final String server_url= getString(R.string.url_serve) + "/user/nameUser/"+nameUser;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

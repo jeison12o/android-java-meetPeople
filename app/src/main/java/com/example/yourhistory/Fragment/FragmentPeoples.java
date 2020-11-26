@@ -67,8 +67,7 @@ public class FragmentPeoples extends Fragment {
         progressDialog.setCancelable(false);
         progressDialog.show();
         final Gson gson = new Gson();
-        /*final String url= "http://192.168.1.12:1000/api/v1/user";*/
-        final String url= "http://192.168.1.12:1000/api/v1/user";
+        final String url= getString(R.string.url_serve) + "/user";
         JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {

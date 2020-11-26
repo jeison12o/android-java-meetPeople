@@ -101,5 +101,11 @@
                 android:text="@string/edit"
                 android:layout_marginStart="15dp"
                 android:id="@+id/btnEditProfile"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="button image"
+                android:layout_marginStart="15dp"
+                android:id="@+id/btnImage"/>
     </LinearLayout>
 </LinearLayout>

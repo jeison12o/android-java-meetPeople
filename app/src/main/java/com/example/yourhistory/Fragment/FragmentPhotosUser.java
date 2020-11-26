@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.yourhistory.R;
 
-public class fragment_photos_user extends Fragment {
+public class FragmentPhotosUser extends Fragment {
 
     @Nullable
     @Override
